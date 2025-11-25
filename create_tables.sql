@@ -36,7 +36,7 @@ CREATE TABLE Agent (
     firmId      INTEGER     NOT NULL,
     dateStarted DATE        NOT NULL,
     PRIMARY KEY (agentId),
-    FOREGIN KEY (firmId) REFERENCES Firm(id)
+    FOREIGN KEY (firmId) REFERENCES Firm(id)
 );
 
 CREATE TABLE Listing (
