@@ -2,7 +2,7 @@ INSERT INTO Property (address, ownerName, price) VALUES
 ('123 A Street', 'John Doe', 100000),
 ('456 B Street', 'Jane Smtih', 200000),
 ('789 C Street', 'Carl White', 300000),
-('321 D Street', 'Mary Brown', 400000),
+('321 D Street', 'Mary Brown', 150000),
 ('654 E Street', 'Emily Jones', 500000),
 ('987 F Road', 'Larry James', 600000),
 ('100 G Road', 'Paul Green', 700000),
