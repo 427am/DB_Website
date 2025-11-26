@@ -6,7 +6,7 @@ INSERT INTO Property (address, ownerName, price) VALUES
 ('654 E Street', 'Emily Jones', 500000),
 ('987 F Road', 'Larry James', 600000),
 ('100 G Road', 'Paul Green', 700000),
-('200 H Road', 'Walter Moose', 800000)
+('200 H Road', 'Walter Moose', 800000),
 ('300 I Road', 'Mickey Mouse', 900000),
 ('400 J Road', 'Donald Duck', 1000000);
 
@@ -32,11 +32,11 @@ INSERT INTO Firm (id, name, address) VALUES
 (5, 'E Realty', '5 Firm Road');
 
 INSERT INTO Agent (agentId, name, phone, firmId, dateStarted) VALUES
-(1, 'Alice Agent', 1, '1999-01-02'),
-(2, 'Benny Agent', 2, '2010-02-20'),
-(3, 'Clark Agent', 3, '2019-04-13'),
-(4, 'Doris Agent', 4, '2020-07-19'),
-(5, 'Emma Agent', 5, '2022-07-09');
+(1, 'Alice Agent', '123-456-7890', 1, '1999-01-02'),
+(2, 'Benny Agent', '321-654-0987', 2, '2010-02-20'),
+(3, 'Clark Agent', '555-555-5555', 3, '2019-04-13'),
+(4, 'Doris Agent', '100-345-543', 4, '2020-07-19'),
+(5, 'Emma Agent', '293-953-2854', 5, '2022-07-09');
 
 INSERT INTO Buyer (id, name, phone, propertyType, bedrooms, bathrooms, businessPropertyType, minimumPreferredPrice, maximumPreferredPrice) VALUES
 (1, 'Alex Buyer', '850-123-4566', 'house', 3, 2, NULL, 100000, 200000),
@@ -57,7 +57,7 @@ INSERT INTO Listing (mlsNumber, address, agentId, dateListed) VALUES
 (1008, '300 I Road', 5, '2025-10-24'),
 (1009, '400 J Road', 1, '2025-11-20');
 
-INSERT INTO Works_With (buyerIdm agentId) VALUES
+INSERT INTO Works_With (buyerId, agentId) VALUES
 (1, 1),
 (2, 2),
 (3, 3),
