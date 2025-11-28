@@ -1,4 +1,8 @@
-<?php include 'db_connect.php'; ?>
+<?php
+include 'db_connect.php';
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,8 +20,66 @@
 </form>
 
 <?php
+if (!empty($_GET)) {
 
+    $sql = "
+        SELECT 
+            P.address,
+            P.ownerName,
+            P.price,
+            B.type,
+            B.size
+        FROM BusinessProperty B
+        JOIN Property P ON B.address = P.address
+        WHERE 1 = 1
+    ";
+
+    if ($_GET['min_price'] !== '' && $_GET['min_price'] !== null) {
+        $min = (int)$_GET['min_price'];
+        $sql .= " AND P.price >= $min";
+    }
+
+    if ($_GET['max_price'] !== '' && $_GET['max_price'] !== null) {
+        $max = (int)$_GET['max_price'];
+        $sql .= " AND P.price <= $max";
+    }
+
+    if ($_GET['type'] !== '' && $_GET['type'] !== null) {
+        $type = $connection->real_escape_string($_GET['type']);
+        // exact match; you could also do LIKE '%$type%'
+        $sql .= " AND B.type = '$type'";
+    }
+
+    $result = $connection->query($sql);
+
+    if ($result === false) {
+        echo "<p>Error: " . $connection->error . "</p>";
+    } elseif ($result->num_rows > 0) {
+        echo "<h2>Results</h2>";
+        echo "<table border='1'>
+                <tr>
+                    <th>Address</th>
+                    <th>Owner</th>
+                    <th>Price</th>
+                    <th>Type</th>
+                    <th>Size (sq ft)</th>
+                </tr>";
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>
+                    <td>{$row['address']}</td>
+                    <td>{$row['ownerName']}</td>
+                    <td>{$row['price']}</td>
+                    <td>{$row['type']}</td>
+                    <td>{$row['size']}</td>
+                  </tr>";
+        }
+        echo "</table>";
+    } else {
+        echo "<p>No business properties match your search.</p>";
+    }
+}
 ?>
 
+<p><a href="index.php">Back to Home</a></p>
 </body>
 </html>
