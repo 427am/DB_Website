@@ -54,5 +54,6 @@ if (!empty($_POST['sql'])) {
 }
 ?>
 
+<p><a href="index.php">Back to Home</a></p>
 </body>
 </html>
