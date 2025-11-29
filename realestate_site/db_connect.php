@@ -1,5 +1,3 @@
-//MADDY AND ISABELLA
-
 <?php
 
 $connection = new mysqli("127.0.0.1", "root", "", "realestate", 3306);

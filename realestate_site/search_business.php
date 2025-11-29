@@ -7,6 +7,7 @@ ini_set('display_errors', 1);
 <html>
 <head>
     <title>Search Business Properties</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -16,6 +17,8 @@ ini_set('display_errors', 1);
     Min Price: <input type="number" name="min_price"><br>
     Max Price: <input type="number" name="max_price"><br>
     Type: <input type="text" name="type"><br>
+    Min Size (sq ft): <input type="number" name="min_size"><br>
+    Max Size (sq ft): <input type="number" name="max_size"><br>
     <input type="submit" value="Search">
 </form>
 
@@ -44,10 +47,30 @@ if (!empty($_GET)) {
         $sql .= " AND P.price <= $max";
     }
 
+    if ($_GET['min_size'] !== '' && $_GET['min_size'] !== null) {
+        $minSize = (int)$_GET['min_size'];
+        $sql .= " AND B.size >= $minSize";
+    }
+
+    if ($_GET['max_size'] !== '' && $_GET['max_size'] !== null) {
+        $maxSize = (int)$_GET['max_size'];
+        $sql .= " AND B.size <= $maxSize";
+    }
+
     if ($_GET['type'] !== '' && $_GET['type'] !== null) {
         $type = $connection->real_escape_string($_GET['type']);
         // exact match; you could also do LIKE '%$type%'
         $sql .= " AND B.type = '$type'";
+    }
+
+    if ($_GET['min_size'] !== '' && $_GET['min_size'] !== null) {
+        $minS = (int)$_GET['min_size'];
+        $sql .= " AND B.size >= $minS";
+    }
+
+    if ($_GET['max_size'] !== '' && $_GET['max_size'] !== null) {
+        $maxS = (int)$_GET['max_size'];
+        $sql .= " AND B.size <= $maxS";
     }
 
     $result = $connection->query($sql);

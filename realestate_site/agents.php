@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>Agents</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 

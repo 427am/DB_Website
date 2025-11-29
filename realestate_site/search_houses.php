@@ -7,6 +7,7 @@ ini_set('display_errors', 1);
 <html>
 <head>
     <title>Search Houses</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 

@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>Manual SQL Query</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 

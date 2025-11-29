@@ -5,7 +5,10 @@ ini_set('display_errors', 1);
 <?php include 'db_connect.php'; ?>
 <!DOCTYPE html>
 <html>
-<head><title>Real Estate MLS</title></head>
+<head>
+    <title>Real Estate MLS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
     <h1>Real Estate MLS</h1>
     <ul>

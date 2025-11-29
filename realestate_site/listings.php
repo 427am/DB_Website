@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>Listings</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
