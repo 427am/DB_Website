@@ -3,7 +3,9 @@
 Partners:
 
 Maddy Burns
+
 Sofia Bernal
+
 Isabella Maldur
 
 Setup Instructions
